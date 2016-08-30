@@ -1,0 +1,40 @@
+.share-sprite, .share-1, .share-2, .share-3, .share-4, .share-5, .share-6, .share-7, .share-8, .share-9 {
+  background-image: url('../images/share-scb15897db8.png');
+  background-repeat: no-repeat;
+}
+
+.share-1 {
+  background-position: 0 0;
+}
+
+.share-2 {
+  background-position: -200px 0;
+}
+
+.share-3 {
+  background-position: -400px 0;
+}
+
+.share-4 {
+  background-position: -600px 0;
+}
+
+.share-5 {
+  background-position: -800px 0;
+}
+
+.share-6 {
+  background-position: -1000px 0;
+}
+
+.share-7 {
+  background-position: -1235px 0;
+}
+
+.share-8 {
+  background-position: -1435px 0;
+}
+
+.share-9 {
+  background-position: -1635px 0;
+}
