@@ -1,2 +1,2 @@
 # diyou
-> My life in diyou,go ahead!
+> My life in diyou,go ahead~!！
