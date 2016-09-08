@@ -1,0 +1,85 @@
+<{assign var='title' value='互联网金融资讯-网贷行业资讯-帝友' }>
+<{assign var="keywords" value='互联网金融资讯，行业资讯，政策法规，帝友动态' }>
+<{assign var='description' value='帝友互联网金融行业资讯频道汇集了互联网金融平台的资讯内容。在这里汇集了两会资讯、政策法规、行业资讯、帝友动态、更新日志、峰会频道等丰富的互联网金融相关信息，资讯解析全面，呈现最新、最热的行业内容。' }>
+<{include file="common/_head.html" }>
+<link rel="stylesheet" type="text/css" href="<{$theme_dir}>/assets/css/information.css">
+<link rel="stylesheet" type="text/css" href="<{$theme_dir}>/assets/css/swiper-3.3.1.min.css">
+
+<body>
+    <div class="content-wrap" id="contentWrap">
+        <{include file="common/head.html" }>
+            <div class="information-panel">
+                <div class="banner">
+                    <img src="<{$theme_dir}>/assets/images/information/banner.jpg" alt="领先资讯，掌握行业动态">
+                </div>
+                <div class="information-swiper">
+                    <div class="tabs-group">
+                        <a href="javascript:;" class="active" data-id="8"><span>帝友动态</span></a>
+                        <a href="javascript:;" data-id="6"><span>行业资讯</span></a>
+                        <a href="javascript:;" data-id="121"><span>行业百科</span></a>
+                    </div>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" id="wrapper-1">
+                                <div class="tabs-page" id="scroller">
+                                    <div id="thelist-1">
+
+                                    </div>
+                                    <div class="copyright">Copyright © 2012 - 2015 闽ICP备12013734号-24 <br/>厦门帝网信息科技有限公司</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <{include file="common/foot.html" }>
+    </div>
+    <script type="text/javascript" src="<{$theme_dir}>/assets/js/plugins/dropload.min.js"></script>
+    <script type="text/javascript">
+        diyou.use("common", function(fn) {
+            fn.mobileUtilMethod();
+            // fn.swiperTab();
+        });
+
+        $(function() {
+            $.ajax({
+                type: 'GET',
+                url: '/news/_list&page=1' + '&category_id=8',
+                dataType: 'html',
+                success: function(data) {
+                    $('#thelist-1').append(data);
+                }
+            });
+            $('.tabs-group a').on('click', function() {
+                var $this = $(this),
+                    data = {};
+                $this.addClass('active').siblings('a').removeClass('active');
+                data.id = $this.attr('data-id');
+                data.page = 1;
+                var el = $('#thelist-1');
+                el.html('');
+                var dropload = $('#thelist-1').dropload({
+                    scrollArea: window,
+                    loadDownFn: function(me) {
+                        $.ajax({
+                            type: 'GET',
+                            url: '/news/_list&page=' + (data.page++) + '&category_id=' + data.id,
+                            dataType: 'html',
+                            success: function(data) {
+                                el.append(data);
+                                me.resetload();
+                            },
+                            error: function(xhr, type) {
+                                alert('Ajax error!');
+                                // 即使加载出错，也得重置
+                                me.resetload();
+                            }
+                        });
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>
