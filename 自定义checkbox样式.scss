@@ -1,0 +1,65 @@
+.input{
+    border: solid 1px #999999;
+    border-radius: 2px;
+    &:focus{
+        outline: 5px auto #66bfee;
+        outline-offset: -2px;
+    }
+}
+.verify{
+    .input3{
+        width: 340px;
+        padding: 10px 40px;
+        background: url('images/login/verify-code.png') no-repeat;
+        background-position: 10px 50%;
+        -webkit-box-shadow: 3px 3px 3px #f5f5f5 inset;
+        -moz-box-shadow: 3px 3px 3px #f5f5f5 inset;
+        box-shadow: 3px 3px 3px #f5f5f5 inset;
+    }
+    .verify-code{
+        display: inline-block;
+        width: 130px;
+        background-color: #656A6E;
+        color: white;
+        font-size: 18px;
+        text-align: center;
+        line-height: 36px;
+        height: 40px;
+        position: relative;
+        bottom: 10;
+    }
+}
+
+.remember{
+color: #999999;
+.rememberChx{
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    &:before{
+        content: '';
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border:solid 1px #999999;
+        border-radius: 2px;
+        position: relative;
+        top: 3px; 
+    }
+}
+.rememberChx:checked{
+    &:before{
+        content: '\2714';
+        display: inline-block;
+        background-size: 100%;
+        color: #66bfee;
+        width: 14px;
+        height: 14px;
+        border:solid 1px #999999;
+        border-radius: 2px;
+        position: relative;
+        top: 0; 
+        line-height: 14px;
+        text-align: center;
+    }
+}
+}
