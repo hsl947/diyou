@@ -1,0 +1,83 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>V6后台管理系统-收支信息（弹窗2）</title>
+    <link rel="stylesheet" href="css/popup2.css">
+    <script src="js/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div class="framework">
+        <div class="framework-popup">
+            <div class="popup-panel">
+                <form class="form-box">       
+                    <div class="form-item">
+                        <label class="left-text" for="userName">单个文本框</label>
+                        <div class="right-section">
+                            <input class="single-input" type="text" name="userName" placeholder="">
+                            <span class="error">
+                                <span class="error-x">×</span>
+                                <span class="text">不能为空</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <label class="left-text" for="">下拉选择</label>
+                        <div class="right-section">
+                            <select class="single-select" name="" id="">
+                                <option value="">-请选择-</option>
+                            </select>
+                            <select class="single-select" name="" id="">
+                                <option value="">-请选择-</option>
+                            </select>
+                            <select class="single-select" name="" id="">
+                                <option value="">-请选择-</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <label class="left-text" for="">输入框</label>
+                        <div class="right-section">
+                            <label class="text" for="">【</label>
+                            <input class="multi-input" type="text" placeholder="">
+                            <label class="text" for="">元】，每增加【</label>
+                            <input class="multi-input" type="text" placeholder="">
+                            <span class="text">】元增加10个积分</span>
+                        </div>
+                    </div>     
+                    <div class="form-item">
+                        <label class="left-text" for="gender">单选按钮</label>
+                        <div class="right-section">
+                            <input class="units" type="radio" name="units"><label for="units" class="text"> 买方：******&#x3000;&#x3000;</label>
+                            <input class="units" type="radio" name="units"><label for="units" class="text"> 卖方：******</label>
+                        </div>
+                    </div>
+                    <div class="form-item" style="margin: 26px 0 22px;">
+                        <label class="left-text" for="bid-type">复选按钮</label>
+                        <div class="right-section">
+                            <label for="project" class="text project-section"><input class="project" type="checkbox" name="project"> <span class="project-text"> 买方：******&#x3000;&#x3000;</span></label>
+                            <label for="project" class="text project-section"><input class="project" type="checkbox" name="project"> <span class="project-text"> 卖方：******</span></label>
+                        </div>
+                    </div>     
+                    <div class="form-item">
+                        <label class="left-text" for="uploadimg">上传图片</label>
+                        <div class="right-section">
+                            <input type="hidden" name="uploadimg">
+                            <span class="pick-img"><span class="pic"></span> 请选择图片</span>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <label for="suggestion" class="left-text" style="line-height: 20px;">意见备注</label>
+                        <div class="right-section">
+                            <textarea class="textarea" name="suggestion" id=""></textarea>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <input class="submit" type="submit" value="提交">
+                        <input class="cancel" type="reset" value="取消">
+                    </div>
+                </form>
+            </div>
+        </div>
+	</div>
+</body>
+</html>

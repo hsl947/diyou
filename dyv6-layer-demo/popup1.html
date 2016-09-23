@@ -1,0 +1,73 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>V6后台管理系统-收支信息（弹窗1）</title>
+    <link rel="stylesheet" href="css/popup1.css">
+    <script src="js/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div class="framework">
+        <div class="framework-popup">
+            <div class="popup-panel">
+                <div class="content-title">
+                    <div class="main-title">收款通知书</div>
+                    <div class="time">业务编号：2016010001&#x3000;&#x3000;|&#x3000;&#x3000;业务类型：解押贷&#x3000;&#x3000;|&#x3000;&#x3000;收款日期：2016-07-20 14:30:00</div>
+                </div>
+                <form class="content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td colspan="2">缴款单位： 厦门帝网信息科技&#x3000;&#x3000;&#x3000;&#x3000;收款金额： 162000元<span class="delete">删除</span></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr height="50px">
+                                <td width="15%">缴款单位</td>
+                                <td width="85%">
+                                    <div>
+                                        <input class="units" type="radio" name="units"><label for="units" class="text"> 买方：******&#x3000;&#x3000;</label>
+                                        <input class="units" type="radio" name="units"><label for="units" class="text"> 卖方：******</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr height="90px">
+                                <td width="15%">缴款项目</td>
+                                <td width="85%">
+                                    <div>
+                                        <label for="project" class="text project-section"><input class="project" type="checkbox" name="project"> <span class="project-text"> 代办费&#x3000;</span></label>
+                                        <label for="project" class="text project-section"><input class="project" type="checkbox" name="project"> <span class="project-text">服务费&#x3000;</span></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr height="50px">
+                                <td width="15%">金额</td>
+                                <td width="85%">
+                                    <div>
+                                        <span>（小写<span class="grey">（自动进行金额统计）</span>）元</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr height="135px">
+                                <td width="15%">备注：</td>
+                                <td width="85%">
+                                    <div>
+                                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>    
+                    </table>
+                    <div class="table-footer">
+                        <div class="foot"> 缴款单位： 厦门帝网信息科技&#x3000;&#x3000;&#x3000;&#x3000;收款金额： 162000元<span class="delete">删除</span></div>
+                        <div class="add">+继续添加收款</div>
+                    </div>
+                    <div class="button-group">
+                        <input class="submit" type="submit" value="提交">
+                        <input class="cancel" type="reset" value="取消">
+                    </div>
+                </form>
+            </div>
+        </div>
+	</div>
+</body>
+</html>
