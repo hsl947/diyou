@@ -1,40 +1,32 @@
-.share-sprite, .share-1, .share-2, .share-3, .share-4, .share-5, .share-6, .share-7, .share-8, .share-9 {
-  background-image: url('../images/share-scb15897db8.png');
+.share-sprite, .share-1, .share-2, .share-3, .share-4, .share-5, .share-6, .share-7 {
+  background-image: url('../images/share-sc901658a9c.png');
   background-repeat: no-repeat;
 }
 
 .share-1 {
-  background-position: 0 0;
+  background-position: 0 -333px;
 }
 
 .share-2 {
-  background-position: -200px 0;
+  background-position: -60px -281px;
 }
 
 .share-3 {
-  background-position: -400px 0;
+  background-position: -120px -221px;
 }
 
 .share-4 {
-  background-position: -600px 0;
+  background-position: -180px -166px;
 }
 
 .share-5 {
-  background-position: -800px 0;
+  background-position: -240px -114px;
 }
 
 .share-6 {
-  background-position: -1000px 0;
+  background-position: -298px -56px;
 }
 
 .share-7 {
-  background-position: -1235px 0;
-}
-
-.share-8 {
-  background-position: -1435px 0;
-}
-
-.share-9 {
-  background-position: -1635px 0;
+  background-position: -348px 0;
 }

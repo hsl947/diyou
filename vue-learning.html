@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue实践</title>
+    <script src="http://cdn.bootcss.com/vue/2.2.6/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <span>{{message}}</span><br>
+        <input type="text" v-model="mes"><br>
+        <test-prop :prop-val="mes"></test-prop><br>
+        <span>{{reverseMes}}</span><br>
+        <button v-on:click="plus()">点击+click事件</button><br>
+        <button @click="del()">点击-click事件</button><br>
+    </div>
+    <script>
+        var vue = new Vue({
+            el:'#app',
+            data:{//data类似angualar的$scope,可以接收数据或函数,任何字段或函数需要先定义才能使用
+                message:'hello world~',
+                mes:'初始值',
+                i:0
+            },
+            components: {//components类似angular的指令，驼峰命名在html中用‘-’表示，可单向动态传值
+                'test-prop':{
+                    props:['propVal'],
+                    template: '<div>{{propVal}}</div>'
+                }
+            },
+            computed:{//computed类似angular的自定义过滤器的函数，函数名可直接在html 中显示，用‘{{}}’，不能用v-bind？
+                reverseMes: function(){
+                    return this.mes.split('').reverse().join('')
+                }
+            },
+            methods:{//创建方法函数
+                plus:function(){
+                    this.message = this.message + '-----'+this.i;
+                    this.i += 1;
+                },
+                del:function(){
+                    var index = this.message.lastIndexOf('-----');
+                    this.message = this.message.slice(0,index);
+                    this.i -= 1;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-$share-layout:horizontal;
+$share-layout:diagonal;
 @import "compass/utilities/sprites";
 @import "share/*.png";  
-@include all-share-sprites;        
+@include all-share-sprites;  
