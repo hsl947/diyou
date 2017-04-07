@@ -14,6 +14,7 @@
         <span>{{reverseMes}}</span><br>
         <button v-on:click="plus()">点击+click事件</button><br>
         <button @click="del()">点击-click事件</button><br>
+        <div id="mount-point"></div>
     </div>
     <script>
         var vue = new Vue({
@@ -51,6 +52,17 @@
                 }
             }
         });
+        var newMount = Vue.extend({//创建一个子类
+            template:'<p>my name is {{lastName}}{{firstName}} . my english ame is {{alias}}</p>',
+            data: function(){//这里data必须是函数
+                return {
+                    firstName:'Shaoli',
+                    lastName:'Hong',
+                    alias:'Souleigh'
+                }
+            }
+        });
+        new newMount().$mount('#mount-point');//$mount类似angular的bootstrap手动启动app，手动地挂载一个未挂载的实例
     </script>
 </body>
 </html>
