@@ -6,15 +6,6 @@
 *{
     box-sizing: border-box;
 }
-html{
-    overflow: scroll;
-}
-body{
-    width: 100%;
-    height: 918px;
-    background: url('images/login/login-bg.png') no-repeat 100%;
-}
-
 .main{
     .login-panel{
         width: 540px;
@@ -24,167 +15,36 @@ body{
         left: 50%;
         margin-left: -270px;
         background-color: white;
-        .top-border{
-            position: relative;
-            top: -3px;
-            height: 4px;
-            line-height: 4px;
-            .blue{
-                display: inline-block;
-                width: 135px;
-                height: 4px;
-                background-color: #36badf;
-            }
-            .red{
-                display: inline-block;
-                width: 135px;
-                height: 4px;
-                background-color: #df4948;
-            }
-            .green{
-                display: inline-block;
-                width: 135px;
-                height: 4px;
-                background-color: #53ba7e;
-            }
-            .yellow{
-                display: inline-block;
-                width: 135px;
-                height: 4px;
-                background-color: #eca64b;
-            }
-        }
-        .panel-title{
-            width: 540px;
-            height: 100px;
-            background-color: #242B31;
-            position: relative;
-            .title{
-                font-size: 34px;
-                color: white;
-                display: block;
-                padding-left: 30px;
-                line-height: 100px;
-            }
-            .title-bg{
-                display: inline-block;
-                width: 113px;
-                height: 94px;
-                background: url('images/login/title-bg.png') no-repeat;
-                position: absolute;
-                right: 10px;
-                bottom: 0;
-            }
-        }
-        .panel-content{
-            padding: 26px 32px 0;
-            position: relative;
-            .input-area{
-                margin-bottom: 20px;
-                .label{
-                    font-size: 14px;
-                    color: black;
-                    display: block;
-                    margin-bottom: 10px;
-                }
-                .input{
-                    border: solid 1px #e4e9f7;
+        .remember{
+            color: #999999;
+            .rememberChx{
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                &:before{
+                    content: '';
+                    display: inline-block;
+                    width: 14px;
+                    height: 14px;
+                    border:solid 1px #999999;
                     border-radius: 2px;
-                    &:focus{
-                        border-color: #66afe9;
-                        -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-                        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-                        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-                    }
-                }
-                .input1{
-                    width: 100%;
-                    padding: 10px 40px;
-                    background: url('images/login/user.png') no-repeat;
-                    background-position: 10px 50%;
-                    -webkit-box-shadow: 0 0 6px rgba(224, 224, 224, 0.7) inset;
-                    -moz-box-shadow: 0 0 6px rgba(224, 224, 224, 0.7) inset;
-                    box-shadow: 0 0 6px rgba(224, 224, 224, 0.7) inset;
-                }
-                .input2{
-                    width: 100%;
-                    padding: 10px 40px;
-                    background: url('images/login/password.png') no-repeat;
-                    background-position: 10px 50%;
-                    -webkit-box-shadow: 0 0 6px rgba(224, 224, 224, 0.7) inset;
-                    -moz-box-shadow: 0 0 6px rgba(224, 224, 224, 0.7) inset;
-                    box-shadow: 0 0 6px rgba(224, 224, 224, 0.7) inset;
-                }
-                .verify{
-                    .input3{
-                        width: 340px;
-                        padding: 10px 40px;
-                        background: url('images/login/verify-code.png') no-repeat;
-                        background-position: 10px 50%;
-                        -webkit-box-shadow: 0 0 6px rgba(224, 224, 224, 0.7) inset;
-                        -moz-box-shadow: 0 0 6px rgba(224, 224, 224, 0.7) inset;
-                        box-shadow: 0 0 6px rgba(224, 224, 224, 0.7) inset;
-                    }
-                    .verify-code{
-                        display: inline-block;
-                        width: 130px;
-                        background-color: #656A6E;
-                        color: white;
-                        font-size: 18px;
-                        text-align: center;
-                        line-height: 36px;
-                        height: 40px;
-                        position: relative;
-                        bottom: 0;
-                    }
+                    position: relative;
+                    top: 3px; 
                 }
             }
-            .remember{
-                color: #999999;
-                .rememberChx{
-                    -moz-appearance: none;
-                    -webkit-appearance: none;
-                    &:before{
-                        content: '';
-                        display: inline-block;
-                        width: 14px;
-                        height: 14px;
-                        border:solid 1px #999999;
-                        border-radius: 2px;
-                        position: relative;
-                        top: 3px; 
-                    }
-                }
-                .rememberChx:checked{
-                    &:before{
-                        content: '\2714';
-                        display: inline-block;
-                        background-size: 100%;
-                        color: #3487e2;
-                        width: 14px;
-                        height: 14px;
-                        border:solid 1px #999999;
-                        border-radius: 2px;
-                        position: relative;
-                        top: 0; 
-                        line-height: 14px;
-                        text-align: center;
-                    }
-                }
-            }
-            .button{
-                width: 100%;
-                height: 46px;
-                text-align: center;
-                line-height: 46px;
-                margin-top: 20px;
-                input{
-                    width: 100%;
-                    height: 100%;
-                    font-size: 18px;
-                    color: white;
-                    background-color: #46A9DE;
-                    cursor: pointer;
+            .rememberChx:checked{
+                &:before{
+                    content: '\2714';
+                    display: inline-block;
+                    background-size: 100%;
+                    color: #3487e2;
+                    width: 14px;
+                    height: 14px;
+                    border:solid 1px #999999;
+                    border-radius: 2px;
+                    position: relative;
+                    top: 0; 
+                    line-height: 14px;
+                    text-align: center;
                 }
             }
         }
