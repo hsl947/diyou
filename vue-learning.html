@@ -44,6 +44,11 @@
                     this.message = this.message.slice(0,index);
                     this.i -= 1;
                 }
+            },
+            watch:{//watch类似angular的$watch，方法中传入两个值（新值，旧值）
+                mes:function (newV, oldV) {
+                    console.log(newV+'-------'+oldV);
+                }
             }
         });
     </script>
