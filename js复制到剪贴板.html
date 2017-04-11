@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js复制到剪贴板</title>
+</head>
+<body>
+    <input type="text" id="spreadUrl" class="form-control" ng-value="mySpread.url" >
+    <a class="btn btn-block btn-lg btn-blue" on-click="onCopy()">复制</a>
+    <script>
+        function onCopy() {
+            var Url2 = document.getElementById("spreadUrl");
+            Url2.select(); // 选择对象
+            try{
+                if(document.execCommand('copy', false, null)){// 执行浏览器复制命令
+                    $layer.alert("已复制好，可贴粘。");
+                } else{
+                    $layer.alert("复制失败，请手动复制。");
+                }
+            } catch(err){
+                $layer.alert("复制失败，请手动复制。");
+            }
+        }
+    </script>
+</body>
+</html>
+
