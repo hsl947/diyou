@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="app" flow-init="{testChunks:false}">
+
+<head>
+    <title>basic</title>
+    <meta charset="utf-8" />
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" />
+</head>
+
+<body flow-prevent-drop flow-drag-enter="style={border: '5px solid green'}" flow-drag-leave="style={}" ng-style="style">
+    <div class="container">
+        <h1>上传视频</h1>
+        <hr class="soften" />
+        <div class="row">
+            <div class="span6">
+                <span class="btn" type="file" flow-btn>上传文件</span>&#x3000;
+                <span class="btn" flow-btn flow-directory ng-show="$flow.supportDirectory">上传文件夹</span>
+            </div>
+        </div>
+        <hr class="soften">
+        <h2>传输：</h2>
+        <p>
+            <a class="btn btn-small btn-success" ng-click="$flow.resume()">上传</a>
+            <a class="btn btn-small btn-danger" ng-click="$flow.pause()">暂停</a>
+            <a class="btn btn-small btn-info" ng-click="$flow.cancel()">取消</a>
+            <span class="label label-info">大小: {{$flow.getSize()}}</span>
+        </p>
+        <table class="table table-hover table-bordered table-striped" flow-transfers>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>名称</th>
+                    <th>大小</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="file in transfers">
+                    <td>{{$index+1}}</td>
+                    <td>{{file.name}}</td>
+                    <td>{{file.size}}</td>
+                    <td>
+                        <div class="btn-group">
+                            <a class="btn btn-mini btn-warning" ng-click="file.pause()" ng-hide="file.paused">暂停</a>
+                            <a class="btn btn-mini btn-warning" ng-click="file.resume()" ng-show="file.paused">恢复</a>
+                            <a class="btn btn-mini btn-danger" ng-click="file.cancel()">取消</a>
+                            <a class="btn btn-mini btn-info" ng-click="file.retry()" ng-show="file.error">重试</a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="http://cdn.bootcss.com/angular.js/1.3.10/angular.min.js"></script>
+    <script src="ng-flow-standalone.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
