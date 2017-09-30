@@ -11,3 +11,27 @@ var $file = $('#file');
       } 
       xhr.send(data); 
   }); 
+  
+  $("#files").change(function(){
+            data = new FormData();
+            data.append('files', $('#files')[0].files[0]);
+            var $layer = $injector.get('$dylayer');
+            $.ajax({
+                type: "post",
+                url: "/wap/loanapply/uploadFileUrl",
+                processData: false,
+                contentType: false,
+                data: data,
+                success: function(_data){
+                    _data = JSON.parse(_data);
+                    if (_data.code == "200") {
+                        $scope.$apply(function () {
+                         　 $scope.formData.attachment_ids_url = _data.msg;
+                            $scope.up_success = true;
+                        });
+                    } else {
+                        $layer.alert(_data.msg, 1000)
+                    }
+                }
+            });
+        });
