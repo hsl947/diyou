@@ -1,30 +1,30 @@
-时至今日，Webpack 已经成为前端工程必备的基础工具之一，不仅被广泛用于前端工程发布前的打包，还在开发中担当本地前端资源服务器（assets server）、模块热更新（hot module replacement）、API Proxy 等角色，结合 ESLint 等代码检查工具，还可以实现在对源代码的严格校验检查。
+	时至今日，Webpack 已经成为前端工程必备的基础工具之一，不仅被广泛用于前端工程发布前的打包，还在开发中担当本地前端资源服务器（assets server）、模块热更新（hot module replacement）、API Proxy 等角色，结合 ESLint 等代码检查工具，还可以实现在对源代码的严格校验检查。
 
-正如上文中提到的，前端从开发到部署前都离不开 Webpack 的参与，而 Webpack 的默认配置文件只有一个，即 webpack.config.js，那么问题来了，开发期和部署前应该使用同一份 Webpack 配置吗？答案肯定是否定的，既然 webpack.config.js 是一个 JS 文件，我们当然可以在文件里写 JavaScript 业务逻辑，通过读取环境变量 NODE_ENV 来判断当前是在开发（dev）时还是最终的生产环境（production），然而很多同学习惯把这两者的配置都混写在根目录下的 webpack.config.js，通过很多零散的 if…else 来“临时”决定某一个 plugin 或者某一个 loader 的配置项，随着 loaders 和 plugins 的不断增加，久而久之 webpack.config.js 变得原来越隆长，代码的可读性和可维护性也大大下降。
+	正如上文中提到的，前端从开发到部署前都离不开 Webpack 的参与，而 Webpack 的默认配置文件只有一个，即 webpack.config.js，那么问题来了，开发期和部署前应该使用同一份 Webpack 配置吗？答案肯定是否定的，既然 webpack.config.js 是一个 JS 文件，我们当然可以在文件里写 JavaScript 业务逻辑，通过读取环境变量 NODE_ENV 来判断当前是在开发（dev）时还是最终的生产环境（production），然而很多同学习惯把这两者的配置都混写在根目录下的 webpack.config.js，通过很多零散的 if…else 来“临时”决定某一个 plugin 或者某一个 loader 的配置项，随着 loaders 和 plugins 的不断增加，久而久之 webpack.config.js 变得原来越隆长，代码的可读性和可维护性也大大下降。
 
-我想通过本文来介绍一种用 3 个 JS 文件来配置 Webpack 的方法，这里借鉴了很多开源项目的配置，同时也结合了我们自己在开发中碰到的种种问题解决方案。
+	我想通过本文来介绍一种用 3 个 JS 文件来配置 Webpack 的方法，这里借鉴了很多开源项目的配置，同时也结合了我们自己在开发中碰到的种种问题解决方案。
 
-本文中提及的配置基于 Webpack 2 或以上，建议使用 3.0 及以上版本
+	本文中提及的配置基于 Webpack 2 或以上，建议使用 3.0 及以上版本
 
-开发环境与生产环境的区别
+	开发环境与生产环境的区别
 
 * 开发环境
 
-NODE_ENV 为 development
-启用模块热更新（hot module replacement）
-额外的 webpack-dev-server 配置项，API Proxy 配置项
-输出 Sourcemap
+	NODE_ENV 为 development
+	启用模块热更新（hot module replacement）
+	额外的 webpack-dev-server 配置项，API Proxy 配置项
+	输出 Sourcemap
 
 * 生产环境
 
-NODE_ENV 为 production
-将 React、jQuery 等常用库设置为 external，直接采用 CDN 线上的版本
-样式源文件（如 css、less、scss 等）需要通过 ExtractTextPlugin 独立抽取成 css 文件
-启用 post-css
-启用 optimize-minimize（如 uglify 等）
-中大型的商业网站生产环境下，是绝对不能有 console.log() 的，所以要为 babel 配置 Remove console transform
+	NODE_ENV 为 production
+	将 React、jQuery 等常用库设置为 external，直接采用 CDN 线上的版本
+	样式源文件（如 css、less、scss 等）需要通过 ExtractTextPlugin 独立抽取成 css 文件
+	启用 post-css
+	启用 optimize-minimize（如 uglify 等）
+	中大型的商业网站生产环境下，是绝对不能有 console.log() 的，所以要为 babel 配置 Remove console transform
 
-这里需要说明的是因为开发环境下启用了 hot module replacement，为了让样式源文件的修改也同样能被热替换，不能使用 ExtractTextPlugin，而转为随 JS Bundle 一起输出。
+	这里需要说明的是因为开发环境下启用了 hot module replacement，为了让样式源文件的修改也同样能被热替换，不能使用 ExtractTextPlugin，而转为随 JS 	 Bundle 一起输出。
 
 你需要三份配置文件
 
