@@ -1,0 +1,13 @@
+var $file = $('#file'); 
+  $('#btn').click(function() { 
+      var data = new FormData(); 
+      data.append('file', $file[0].files[0]); 
+      data.append('foo', 'bar'); 
+
+      var xhr = new XMLHttpRequest(); 
+      xhr.open('post', '/upload'); 
+      xhr.onload = function(e) { 
+          alert(e.currentTarget.response); 
+      } 
+      xhr.send(data); 
+  }); 
